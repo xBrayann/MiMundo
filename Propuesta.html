@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi mundo 🌎</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- 💖 Pregunta principal -->
+  <div id="contenido">
+    <h1 id="titulo">¿Quieres ser mi compañera de vida? 💖</h1>
+    <div class="botones">
+      <button id="si" class="btn">Sí 💘</button>
+      <button id="no" class="btn">No 💔</button>
+    </div>
+  </div>
+
+  <!-- 💞 Mensaje de confirmación -->
+  <div id="mensaje">¡Sabía que dirías que sí! 💞</div>
+  <button id="regalo">🎁 Abre el regalo</button>
+
+  <!-- 🌌 Galaxia -->
+  <div id="galaxia">
+    <canvas id="c"></canvas>
+    <div class="player">
+      <button id="play">▶️</button>
+      <div class="progress" id="progress">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="time" id="time">0:00 / 0:00</div>
+    </div>
+  </div>
+
+  <!-- 🎵 Audio FUERA de galaxia (a nivel de body, como en test_audio.html) -->
+  <audio id="audio" loop preload="auto">
+    <source src="Love.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script>
+    // Desregistrar cualquier Service Worker que pueda interferir
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(r => { r.unregister(); console.log('SW desregistrado:', r.scope); });
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
